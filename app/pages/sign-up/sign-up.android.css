@@ -1,0 +1,7 @@
+TextField {
+    padding-top: 15;
+    padding-bottom: 15;
+    placeholder-color: #9B9B9B;
+    border-bottom-width: 1;
+    border-color: transparent;
+}

@@ -1,0 +1,7 @@
+@import './app.common.css'; 
+
+.input-border {    
+    border-bottom-width: 1px;
+    border-color: #808080;
+    border-style: solid;
+}

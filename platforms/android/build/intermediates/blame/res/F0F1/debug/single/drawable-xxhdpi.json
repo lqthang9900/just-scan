@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/innoria/Projects/just-scan/platforms/android/build/intermediates/res/merged/F0F1/debug/drawable-xxhdpi/icon.png",
+        "source": "/Users/innoria/Projects/just-scan/platforms/android/src/main/res/drawable-xxhdpi/icon.png"
+    },
+    {
+        "merged": "/Users/innoria/Projects/just-scan/platforms/android/build/intermediates/res/merged/F0F1/debug/drawable-xxhdpi/background.png",
+        "source": "/Users/innoria/Projects/just-scan/platforms/android/src/main/res/drawable-xxhdpi/background.png"
+    },
+    {
+        "merged": "/Users/innoria/Projects/just-scan/platforms/android/build/intermediates/res/merged/F0F1/debug/drawable-xxhdpi/logo.png",
+        "source": "/Users/innoria/Projects/just-scan/platforms/android/src/main/res/drawable-xxhdpi/logo.png"
+    }
+]

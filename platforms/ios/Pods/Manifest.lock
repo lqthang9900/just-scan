@@ -1,0 +1,15 @@
+PODS:
+  - MBProgressHUD (1.0.0)
+  - Toaster (2.0.3)
+
+DEPENDENCIES:
+  - MBProgressHUD
+  - Toaster (~> 2.0.1)
+
+SPEC CHECKSUMS:
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  Toaster: 77c0b03d78e680bbbab0071c9c7ee392b0034010
+
+PODFILE CHECKSUM: f3c6e0e07064a8ab31b7c8946e477a73fc70ff69
+
+COCOAPODS: 1.2.1
