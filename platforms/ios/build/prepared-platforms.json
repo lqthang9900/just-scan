@@ -1,8 +1,0 @@
-{
-    "nativescript-cardview": true,
-    "nativescript-loading-indicator": true,
-    "nativescript-theme-core": true,
-    "nativescript-toast": true,
-    "tns-core-modules": true,
-    "tns-core-modules-widgets": true
-}
