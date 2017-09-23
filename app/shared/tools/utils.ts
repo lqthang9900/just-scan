@@ -143,6 +143,7 @@ export class Utils {
             }
         }
     }
+    
     public static navigate(path: string, clearHistory?: boolean, data?: any) {
         if (path) {
             try {
@@ -158,6 +159,7 @@ export class Utils {
             }
         }
     }
+
     public static goBack(BackstackEntry?) {
         try {
             if (BackstackEntry)
@@ -168,20 +170,6 @@ export class Utils {
             console.log(ex);
         }
     }
-
-    // public static hideStatusBar() {
-    //     if (app.android)
-    //         app.android.startActivity.getWindow().addFlags(android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN);
-    //     else
-    //         UIApplication.sharedApplication.statusBarHidden = true;
-    // }
-
-    // public static showStatusBar() {
-    //     if (app.android)
-    //         app.android.startActivity.getWindow().addFlags(android.view.WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
-    //     else
-    //         UIApplication.sharedApplication.statusBarHidden = false;
-    // }
 
     public static showModal(page: any, path: string, closeModalCallBack: Function, fullsreen: boolean, context?: any, ) {
         if (path && page) {
@@ -203,76 +191,39 @@ export class Utils {
     public static hideLoadingIndicator() {
         loader.hide();
     }
-    // public static transparentModalIOS() {
-    //     if (app.ios) {
-    //         Page.prototype._showNativeModalView = function (parent, context, closeCallback, fullscreen) {
-    //             pageCommon.prototype._showNativeModalView.call(this, parent, context, closeCallback, fullscreen);
-    //             let that = this;
-    //             this._modalParent = parent;
-    //             if (!parent.ios.view.window) {
-    //                 throw new Error('Parent page is not part of the window hierarchy. Close the current modal page before showing another one!');
-    //             }
-    //             if (fullscreen) {
-    //                 this._ios.modalPresentationStyle = 0;
-    //             } else {
-    //                 this._ios.modalPresentationStyle = 2;
-    //                 this._UIModalPresentationFormSheet = true;
-    //             }
-    //             pageCommon.prototype._raiseShowingModallyEvent.call(this);
-    //             this._ios.providesPresentationContextTransitionStyle = true;
-    //             this._ios.definesPresentationContext = true;
-    //             this._ios.modalPresentationStyle = UIModalPresentationOverFullScreen;
-    //             this._ios.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    //             this._ios.view.backgroundColor = UIColor.clearColor;
-    //             parent.ios.presentViewControllerAnimatedCompletion(this._ios, false, function completion() {
-    //                 that._ios.modalPresentationStyle = UIModalPresentationCurrentContext;
-    //                 that._raiseShownModallyEvent(parent, context, closeCallback);
-    //             });
-    //         }
-    //     }
-    // }
-    // public static turnOffAnimateParentModalIOS() {
-    //     if (app.ios) {
-    //         Page.prototype._hideNativeModalView = function (parent) {
-    //             parent.requestLayout();
-    //             parent._ios.dismissModalViewControllerAnimated(false);
-    //             pageCommon.prototype._hideNativeModalView.call(parent);
-    //         }
-    //     }
-    // }
 
-    // public static scanBarCode(page: any, callBackFunction: Function, closeCallbackFunction?: Function, buttonMaunalText?: string) {
-    //     if (!closeCallbackFunction) {
-    //         closeCallbackFunction = function () { console.log('close scan modal'); };
-    //     }
-    //     if (!buttonMaunalText) {
-    //         buttonMaunalText = 'Nhập mã barcode';
-    //     }
-    //     localStorage.setItem('buttonMaunalText', buttonMaunalText);
-    //     barcodescanner.hasCameraPermission()
-    //         .then((permitted) => {
-    //             if (permitted) {
-    //                 page.showModal('shared/components/scan-modal/scan-modal', callBackFunction, closeCallbackFunction, (!!app.ios));
-    //             }
-    //             else {
-    //                 barcodescanner.requestCameraPermission()
-    //                     .then(() => {
-    //                         page.showModal('shared/components/scan-modal/scan-modal', callBackFunction, closeCallbackFunction, (!!app.ios));
+    public static scanBarCode(page: any, callBackFunction: Function, closeCallbackFunction?: Function, buttonMaunalText?: string) {
+        if (!closeCallbackFunction) {
+            closeCallbackFunction = function () { console.log('close scan modal'); };
+        }
+        if (!buttonMaunalText) {
+            buttonMaunalText = 'Nhập mã barcode';
+        }
+        localStorage.setItem('buttonMaunalText', buttonMaunalText);
+        barcodescanner.hasCameraPermission()
+            .then((permitted) => {
+                if (permitted) {
+                    page.showModal('shared/components/scan-modal/scan-modal', callBackFunction, closeCallbackFunction, (!!app.ios));
+                }
+                else {
+                    barcodescanner.requestCameraPermission()
+                        .then(() => {
+                            page.showModal('shared/components/scan-modal/scan-modal', callBackFunction, closeCallbackFunction, (!!app.ios));
 
-    //                     })
-    //                     .catch((err) => {
-    //                         dialogs.alert({
-    //                             title: "Thông Báo",
-    //                             message: "Vui lòng cho phép ứng dụng truy cập Camera để sử dụng tính năng quét barcode.",
-    //                             okButtonText: "Trở lại"
-    //                         });
-    //                     })
-    //             }
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //         })
-    // }
+                        })
+                        .catch((err) => {
+                            dialogs.alert({
+                                title: "Thông Báo",
+                                message: "Vui lòng cho phép ứng dụng truy cập Camera để sử dụng tính năng quét barcode.",
+                                okButtonText: "Trở lại"
+                            });
+                        })
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
 
     public static assign(obj) {
         var newObj: any = {};
